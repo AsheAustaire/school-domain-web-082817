@@ -1,3 +1,4 @@
+require 'pry'
 require 'spec_helper'
 
 describe 'School' do
@@ -15,6 +16,7 @@ describe 'School' do
     it 'is able to add a student' do
       @school.add_student("AC Slater", 10)
       expect(@school.roster).to eq({10 => ["AC Slater"]})
+
     end
 
     it 'is able to add multiple students to a class (grade)' do
@@ -53,7 +55,7 @@ describe 'School' do
       @school.add_student("Jeff Baird", 10)
       @school.add_student("Blake Johnson", 7)
       @school.add_student("Jack Bauer", 7)
-
+      binding.pry
       # key order does not matter; this is testing that the students in each respective value are in alphabetical order
       expect(@school.sort).to eq({7 => ["Blake Johnson", "Jack Bauer"], 9 => ["Bart Simpson", "Homer Simpson"], 10 => ["Avi Flombaum", "Jeff Baird"]})
     end
